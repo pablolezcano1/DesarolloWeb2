@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objeto Persona</title>
+</head>
+<body>
+  <h1>Objeto Persona</h1>
+  <button onclick="persona.saludar()">Saludar</button>
+  <div id="saludo"></div>
+
+  <script>
+    // Crear el objeto persona con las propiedades nombre, apellido y edad
+    const persona = {
+      nombre: "Juan",
+      apellido: "Pérez",
+      edad: 30,
+      // Método saludar que imprime un saludo utilizando las propiedades del objeto
+      saludar: function() {
+        const saludo = `Hola, mi nombre es ${this.nombre} ${this.apellido} y tengo ${this.edad} años.`;
+        document.getElementById("saludo").innerText = saludo;
+      }
+    };
+
+    // Ejemplo de cómo llamar al método saludar
+    // persona.saludar();
+  </script>
+</body>
+</html>

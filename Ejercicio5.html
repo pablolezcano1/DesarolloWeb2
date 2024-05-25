@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empresa y Empleados</title>
+</head>
+<body>
+  <h1>Empresa y Empleados</h1>
+  <div id="resultado"></div>
+  
+  <script>
+    const empresa = {
+      empleados: [],
+      
+      // Método para agregar un nuevo empleado
+      agregarEmpleado: function(nombre, salario) {
+        this.empleados.push({ nombre: nombre, salario: salario });
+      },
+      
+      // Método para calcular el salario promedio de la empresa
+      salarioPromedio: function() {
+        if (this.empleados.length === 0) return 0;
+        const totalSalarios = this.empleados.reduce((acumulador, empleado) => acumulador + empleado.salario, 0);
+        return totalSalarios / this.empleados.length;
+      },
+      
+      // Método para obtener el empleado con el salario más alto
+      empleadoSalarioMasAlto: function() {
+        if (this.empleados.length === 0) return null;
+        return this.empleados.reduce((empleadoConMayorSalario, empleadoActual) => {
+          return (empleadoActual.salario > empleadoConMayorSalario.salario) ? empleadoActual : empleadoConMayorSalario;
+        }, this.empleados[0]);
+      }
+    };
+
+    // Ejemplo de uso
+    empresa.agregarEmpleado("Juan", 3000);
+    empresa.agregarEmpleado("María", 4000);
+    empresa.agregarEmpleado("Pedro", 3500);
+
+    // Mostrar resultados en pantalla
+    const resultadoElemento = document.getElementById("resultado");
+    resultadoElemento.innerHTML += "<h2>Empleados:</h2>";
+    empresa.empleados.forEach(empleado => {
+      resultadoElemento.innerHTML += `<p>Nombre: ${empleado.nombre}, Salario: ${empleado.salario}</p>`;
+    });
+    resultadoElemento.innerHTML += `<p>Salario promedio: ${empresa.salarioPromedio()}</p>`;
+    const empleadoSalarioMasAlto = empresa.empleadoSalarioMasAlto();
+    resultadoElemento.innerHTML += `<p>Empleado con salario más alto: ${empleadoSalarioMasAlto ? empleadoSalarioMasAlto.nombre + " ($" + empleadoSalarioMasAlto.salario + ")" : "No hay empleados"}</p>`;
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Libro</title>
+</head>
+<body>
+  <h1>Crear Libro</h1>
+  <div id="libros"></div>
+  <script>
+    // Función expresada que crea un objeto libro
+    const crearLibro = function(titulo, autores, editorial, anioEdicion) {
+      return {
+        titulo: titulo,
+        autores: autores,
+        editorial: editorial,
+        anioEdicion: anioEdicion
+      };
+    };
+
+    // Ejemplo de uso de la función crearLibro
+    const libro1 = crearLibro("El alquimista", "Paulo Coelho", "Editorial Planeta", 1988);
+    const libro2 = crearLibro("Harry Potter y la piedra filosofal", "J.K. Rowling", "Salamandra", 1997);
+
+
+    // Mostrar los libros en pantalla
+    const librosElemento = document.getElementById("libros");
+    librosElemento.innerHTML += `<p><strong>Libro 1:</strong> ${libro1.titulo}, ${libro1.autores}, ${libro1.editorial}, ${libro1.anioEdicion}</p>`;
+    librosElemento.innerHTML += `<p><strong>Libro 2:</strong> ${libro2.titulo}, ${libro2.autores}, ${libro2.editorial}, ${libro2.anioEdicion}</p>`;
+  </script>
+</body>
+</html>
+

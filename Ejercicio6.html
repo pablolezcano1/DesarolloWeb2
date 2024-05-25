@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtrar Por Valor</title>
+</head>
+<body>
+  <h1>Filtrar Por Valor</h1>
+  <div id="resultado"></div>
+
+  <script>
+    function filtrarPorValor(arr, propiedad, valor) {
+      // Filtrar el arreglo por la propiedad y el valor especificados
+      return arr.filter(objeto => objeto[propiedad] === valor);
+    }
+
+    // Ejemplo de uso
+    const personas = [
+      { nombre: 'Juan', edad: 30 },
+      { nombre: 'María', edad: 25 },
+      { nombre: 'Pedro', edad: 35 },
+      { nombre: 'Ana', edad: 25 }
+    ];
+
+    // Filtrar personas por edad igual a 25
+    const personasFiltradas = filtrarPorValor(personas, 'edad', 25);
+
+    // Mostrar resultados en pantalla
+    const resultadoElemento = document.getElementById("resultado");
+    resultadoElemento.innerHTML += "<h2>Personas Filtradas:</h2>";
+    personasFiltradas.forEach(persona => {
+      resultadoElemento.innerHTML += `<p>${persona.nombre}, ${persona.edad} años</p>`;
+    });
+  </script>
+</body>
+</html>
+
+
+

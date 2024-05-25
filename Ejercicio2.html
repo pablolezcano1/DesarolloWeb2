@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificar Palíndromo</title>
+</head>
+<body>
+  <h1>Verificar si una cadena es un palíndromo</h1>
+  <label for="texto">Ingrese una cadena de texto:</label>
+  <input type="text" id="texto">
+  <button onclick="verificarPalindromo()">Verificar</button>
+  <div id="resultado"></div>
+
+  <script>
+    // Función declarada para determinar si una cadena de texto es un palíndromo
+    function esPalindromo(texto) {
+      // Convertir la cadena a minúsculas y eliminar caracteres no alfabéticos
+      const textoNormalizado = texto.toLowerCase().replace(/[^a-z0-9]/g, '');
+      // Invertir la cadena
+      const textoInvertido = textoNormalizado.split('').reverse().join('');
+      // Devolver true si la cadena normalizada es igual a su versión invertida
+      return textoNormalizado === textoInvertido;
+    }
+
+    // Función para verificar el palíndromo y mostrar el resultado
+    function verificarPalindromo() {
+      const texto = document.getElementById("texto").value;
+      const resultadoElemento = document.getElementById("resultado");
+      
+      const esPalindromoResultado = esPalindromo(texto);
+      
+      if (esPalindromoResultado) {
+        resultadoElemento.innerHTML = `True.`;
+      } else {
+        resultadoElemento.innerHTML = `False.`;
+      }
+    }
+  </script>
+</body>
+</html>
